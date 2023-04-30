@@ -30,7 +30,14 @@ public class Main {
     Scanner scanner = new Scanner(new File(filename));
     int n = scanner.nextInt(); //chitaekolichestvo strok
     scanner.nextLine();//perehodim na noviju stroku
-    System.out.println("In file " + filename + " is " + n + " lines with data");
+    for (int i = 0; i < n; i++) { //chitaem novie stroki n raz
+      String lastName = scanner.next();
+      int votes = scanner.nextInt();//prochital golosa
+      scanner.nextLine(); //perehodim na novuju stroku
+      System.out.println(
+          "Line " + (i+1) + ":for candidate " + lastName + " is " + votes + " votes");
+
+    }
 
   }
 

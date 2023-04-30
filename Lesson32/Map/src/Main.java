@@ -19,5 +19,10 @@ public class Main {
     // Пример вывода:
     // McCain 16
     // Obama 17
+    readInput("res/in.txt");
   }
+  private static void readInput(String filename){
+
+  }
+
 }

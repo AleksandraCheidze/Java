@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -26,6 +28,7 @@ public class Main {
     readInput("res/in.txt");//chitaem fail
   }
   private static void readInput(String filename) throws FileNotFoundException {
+    Map<String, Integer> result = new HashMap<>();
     //metod kotorij schitaet kolichestvo strok
     Scanner scanner = new Scanner(new File(filename));
     int n = scanner.nextInt(); //chitaekolichestvo strok
@@ -34,10 +37,15 @@ public class Main {
       String lastName = scanner.next();
       int votes = scanner.nextInt();//prochital golosa
       scanner.nextLine(); //perehodim na novuju stroku
-      System.out.println(
-          "Line " + (i+1) + ":for candidate " + lastName + " is " + votes + " votes");
+      if (result.containsKey(lastName)) {
+        result.put(lastName, result.get(lastName) + votes);
+      }else {
+        result.put(lastName, votes);
+
+      }
 
     }
+    System.out.println(result);
 
   }
 

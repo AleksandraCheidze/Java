@@ -35,18 +35,20 @@ public class Main {
     scanner.nextLine();//perehodim na noviju stroku
     for (int i = 0; i < n; i++) { //chitaem novie stroki n raz
       String lastName = scanner.next();
-      int votes = scanner.nextInt();//prochital golosa
+      int newVotes = scanner.nextInt();//prochital golosa
       scanner.nextLine(); //perehodim na novuju stroku
-      if (result.containsKey(lastName)) {
-        result.put(lastName, result.get(lastName) + votes);
-      }else {
-        result.put(lastName, votes);
+      if (!result.containsKey(lastName)) {//esli eto novij kandidat i ego net v nashei baze
+        result.put(lastName, 0);//dobavljaem emu novij schetchik
+      }
+      //teperj prochitanij kandidat tochno estj v results
+      int oldVotes = result.get(lastName);//prediduschie znachenie
+      // schetchika (dlja novogo kandidata 0)
+        result.put(lastName,oldVotes + newVotes);//k prediduschemu dobavljaem nomer
 
       }
 
     }
-    System.out.println(result);
+
 
   }
 
-}
